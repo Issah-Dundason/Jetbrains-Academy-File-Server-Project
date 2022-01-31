@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="FileServerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-31T05:11:15" hostname="DESKTOP-ET034TC" time="5.382">
+  <properties/>
+  <testcase name="start" classname="FileServerTest" time="5.382"/>
+  <system-out><![CDATA[?[1;31m
+Start test 1?[0m
+Server started!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> exit
+The request was sent
+?[1;31m
+Start test 2?[0m
+?[1;31m
+Start test 3?[0m
+Server started!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> 2
+Enter name of the file: > test_purpose_test1.txt
+Enter name of the file to be saved on server: > 
+The request was sent
+Response says that file is saved! ID = 5
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> 2
+Enter name of the file: > test_purpose_test2.txt
+Enter name of the file to be saved on server: > test_purpose_newFile.txt
+The request was sent
+Response says that file is saved! ID = 6
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> 1
+Do you want to get the file by name or by id (1 - name, 2 - id): > 1
+Enter filename: > test_purpose_notExist.txt
+The request was sent
+The response says that this file is not found!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> 1
+Do you want to get the file by name or by id (1 - name, 2 - id): > 2
+Enter id: > 5511
+The request was sent
+The response says that this file is not found!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> 1
+Do you want to get the file by name or by id (1 - name, 2 - id): > 1
+Enter filename: > test_purpose_newFile.txt
+The request was sent
+[116, 101, 115, 116, 50]
+Optional has data [116, 101, 115, 116, 50]
+The file was downloaded! specify a name for it: 
+> test_purpose_get.txt
+File saved on the hard drive!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> 1
+Do you want to get the file by name or by id (1 - name, 2 - id): > 2
+Enter id: > 5
+The request was sent
+[116, 101, 115, 116, 49]
+Optional has data [116, 101, 115, 116, 49]
+The file was downloaded! specify a name for it: 
+> test_purpose_get_id.txt
+File saved on the hard drive!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> exit
+The request was sent
+?[1;31m
+Start test 4?[0m
+Server started!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> 1
+Do you want to get the file by name or by id (1 - name, 2 - id): > 1
+Enter filename: > test_purpose_newFile.txt
+The request was sent
+[116, 101, 115, 116, 50]
+Optional has data [116, 101, 115, 116, 50]
+The file was downloaded! specify a name for it: 
+> test_purpose_get_after_restart.txt
+File saved on the hard drive!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> 1
+Do you want to get the file by name or by id (1 - name, 2 - id): > 2
+Enter id: > 5
+The request was sent
+[116, 101, 115, 116, 49]
+Optional has data [116, 101, 115, 116, 49]
+The file was downloaded! specify a name for it: 
+> test_purpose_get_by_id_after_restart.txt
+File saved on the hard drive!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> exit
+The request was sent
+?[1;31m
+Start test 5?[0m
+Server started!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> 3
+Do you want to delete the file by name or by id (1 - name, 2 - id): > 1
+Enter filename: > test_purpose_newFile.txt
+The request was sent
+The response says that this file was deleted successfully!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> 3
+Do you want to delete the file by name or by id (1 - name, 2 - id): > 2
+Enter id: > 5
+The request was sent
+The response says that this file was deleted successfully!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+> exit
+The request was sent
+]]></system-out>
+  <system-err><![CDATA[Exception in thread "Thread-3" org.hyperskill.hstest.dynamic.security.ExitException: Tried to exit with status 0.
+	at org.hyperskill.hstest.dynamic.security.TestingSecurityManager.checkExit(TestingSecurityManager.java:50)
+	at java.base/java.lang.Runtime.exit(Runtime.java:113)
+	at java.base/java.lang.System.exit(System.java:1860)
+	at server.Main.lambda$main$0(Main.java:22)
+	at server.Task.run(Task.java:29)
+java.nio.file.NoSuchFileException: C:\Users\Haedes\IdeaProjects\File Server\File Server\task\src\server\data\test_purpose_notExist.txt
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:236)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:380)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:432)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3288)
+	at server.FileManager.readFile(FileManager.java:35)
+	at server.GetCommand.process(GetCommand.java:21)
+	at server.Task.run(Task.java:32)
+java.nio.file.NoSuchFileException: C:\Users\Haedes\IdeaProjects\File Server\File Server\task\src\server\data\a65482c8-9446-4dd2-93d4-723d3bfbfbe3
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:236)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:380)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:432)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3288)
+	at server.FileManager.readFile(FileManager.java:35)
+	at server.GetCommand.process(GetCommand.java:21)
+	at server.Task.run(Task.java:32)
+Exception in thread "Thread-10" org.hyperskill.hstest.dynamic.security.ExitException: Tried to exit with status 0.
+	at org.hyperskill.hstest.dynamic.security.TestingSecurityManager.checkExit(TestingSecurityManager.java:50)
+	at java.base/java.lang.Runtime.exit(Runtime.java:113)
+	at java.base/java.lang.System.exit(System.java:1860)
+	at server.Main.lambda$main$0(Main.java:22)
+	at server.Task.run(Task.java:29)
+Exception in thread "Thread-13" org.hyperskill.hstest.dynamic.security.ExitException: Tried to exit with status 0.
+	at org.hyperskill.hstest.dynamic.security.TestingSecurityManager.checkExit(TestingSecurityManager.java:50)
+	at java.base/java.lang.Runtime.exit(Runtime.java:113)
+	at java.base/java.lang.System.exit(System.java:1860)
+	at server.Main.lambda$main$0(Main.java:22)
+	at server.Task.run(Task.java:29)
+Exception in thread "Thread-16" org.hyperskill.hstest.dynamic.security.ExitException: Tried to exit with status 0.
+	at org.hyperskill.hstest.dynamic.security.TestingSecurityManager.checkExit(TestingSecurityManager.java:50)
+	at java.base/java.lang.Runtime.exit(Runtime.java:113)
+	at java.base/java.lang.System.exit(System.java:1860)
+	at server.Main.lambda$main$0(Main.java:22)
+	at server.Task.run(Task.java:29)
+]]></system-err>
+</testsuite>
